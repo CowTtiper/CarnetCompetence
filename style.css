@@ -9,12 +9,12 @@
     * -------------------- */
 
     :root {
-        --primary-color: #4f46e5; /* Un indigo moderne et pro */
-        --text-primary: #1f2937;  /* Gris très foncé (mieux que noir) */
-        --text-secondary: #4b5563; /* Gris moyen */
-        --bg-primary: #ffffff;   /* Blanc */
-        --bg-secondary: #f9fafb; /* Blanc cassé / Gris très clair */
-        --border-color: #e5e7eb;  /* Gris clair pour les bordures */
+        --primary-color: #4f46e5; 
+        --text-primary: #1f2937;  
+        --text-secondary: #4b5563; 
+        --bg-primary: #ffffff;   
+        --bg-secondary: #f9fafb; 
+        --border-color: #e5e7eb;  
         --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
@@ -34,7 +34,7 @@
         line-height: 1.6;
         color: var(--text-primary);
         background: var(--bg-primary);
-        -webkit-font-smoothing: antialiased; /* Améliore le rendu du texte */
+        -webkit-font-smoothing: antialiased; 
     }
 
     .container {
@@ -58,7 +58,7 @@
 #engagements {
     background-color: var(--bg-secondary); /* Fond gris clair */
 }
-/* On redonne au H3 de "Engagements" sa couleur par défaut */
+
 #engagements .about-text h3 {
     color: var(--primary-color); /* Bleu (indigo) */
 }
@@ -70,17 +70,17 @@
     color: #d1d5db; /* Texte par défaut gris clair */
 }
 
-/* On s'assure que les titres de section sont blancs sur fond sombre */
+
 #experiences .section-title {
     color: var(--bg-primary); /* Blanc */
 }
 
-/* On s'assure que les paragraphes sont clairs sur fond sombre */
+
 #experiences p {
     color: #d1d5db;
 }
 
-/* On s'assure que les sous-titres H3 sont clairs sur fond sombre */
+
 #experiences .about-text h3 {
     color: var(--bg-primary); /* Blanc */
 }
@@ -181,7 +181,7 @@
     * -------------------- */
 
     .mobile-menu-toggle {
-        display: none; /* Caché sur grand écran */
+        display: none; 
         cursor: pointer;
         padding: 0.5rem;
     }
@@ -281,7 +281,7 @@
     }
 
     .cta-button:hover {
-        background: #4338ca; /* Plus foncé */
+        background: #4338ca; 
         opacity: 1;
         transform: translateY(-2px);
     }
@@ -338,7 +338,7 @@
         color: var(--text-secondary);
         font-weight: 500;
     }
-    /* Le premier H3 n'a pas de marge en haut */
+    
     #competences h3:first-of-type {
         margin-top: 0;
     }
@@ -393,7 +393,7 @@
     }
 
     .contact p {
-        color: #d1d5db; /* Gris clair pour fond sombre */
+        color: #d1d5db;
         font-size: 1.1rem;
     }
 
@@ -417,13 +417,13 @@
         transform: translateY(-2px);
     }
 
-    /* Styles pour le CV intégré (vient de l'inline style) */
+    
     .cv-embed { 
-        border: 1px solid #4b5563; /* Bordure plus foncée */
+        border: 1px solid #4b5563; 
         margin-top: 3rem; 
         border-radius: 8px;
-        overflow: hidden; /* Pour les coins arrondis */
-    }
+        overflow: hidden;
+        }
     .cv-embed iframe { 
         display: block; 
         border: none; 
@@ -456,19 +456,19 @@
     * 10. Animations (Fade/Slide)
     * -------------------- */
 
-    /* États initiaux (cachés) */
+    
     .fade-in,
     .slide-in-left,
     .slide-in-right {
         opacity: 0;
-        transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transition "élastique" */
-    }
+        transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
 
     .fade-in { transform: translateY(30px); }
     .slide-in-left { transform: translateX(-40px); }
     .slide-in-right { transform: translateX(40px); }
 
-    /* États finaux (visibles) - déclenchés par JS */
+    
     .fade-in.animate,
     .slide-in-left.animate,
     .slide-in-right.animate {
