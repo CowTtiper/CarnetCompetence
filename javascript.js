@@ -34,10 +34,13 @@ document.addEventListener('click', (e) => {
 // Effet de défilement sur la Navbar
 window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    // Vérifie d'abord si la navbar existe
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     }
 });
 
@@ -65,6 +68,8 @@ const portfolioObserver = new IntersectionObserver((entries) => {
                     item.classList.add('animate');
                 }, index * 150);
             });
+            // On arrête d'observer une fois l'animation lancée
+            portfolioObserver.unobserve(entry.target);
         }
     });
 }, { threshold: 0.1 });
@@ -74,17 +79,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
     animatedElements.forEach(el => observer.observe(el));
 
-    const portfolioSection = document.querySelector('.portfolio-grid');
-    if (portfolioSection) {
-        portfolioObserver.observe(portfolioSection);
-    }
+    // Cible TOUTES les grilles, pas juste la première
+    const portfolioGrids = document.querySelectorAll('.portfolio-grid');
+    portfolioGrids.forEach(grid => {
+        if (grid) {
+            portfolioObserver.observe(grid);
+        }
+    });
 });
 
 // Défilement fluide pour les liens d'ancrage
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+        
         if (target) {
             const offsetTop = target.offsetTop - 80; // Offset pour la navbar fixe
             window.scrollTo({
@@ -94,38 +104,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// --- BLOC FORMULAIRE SUPPRIMÉ ---
-// Le code 'document.querySelector('.contact-form').addEventListener('submit', ...)'
-// a été supprimé car le formulaire n'existe plus.
-
-
-// Effet de parallaxe pour la section Hero
-let ticking = false;
-
-function updateParallax() {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    const rate = scrolled * -0.3; // Ajustez ce taux pour plus/moins d'effet
-    
-    // S'assure que hero existe avant de manipuler son style
-    if (hero) {
-        hero.style.transform = `translateY(${rate}px)`;
-    }
-    ticking = false;
-}
-
-window.addEventListener('scroll', () => {
-    if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-    }
-});
-
-// --- BLOC SKILL-TAGS SUPPRIMÉ ---
-// Le code 'document.querySelectorAll('.skill-tag').forEach(...)'
-// a été supprimé car ces éléments ne sont plus utilisés.
-
 
 // Accessibilité : Navigation au clavier
 document.addEventListener('keydown', (e) => {
