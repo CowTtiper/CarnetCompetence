@@ -1,0 +1,510 @@
+/*
+ * =========================================
+ * STYLE.CSS - Carnet de Compétences Sobre
+ * =========================================
+ */
+
+/* --------------------
+ * 1. Variables et Styles Globaux
+ * -------------------- */
+
+:root {
+    --primary-color: #4f46e5; /* Un indigo moderne et pro */
+    --text-primary: #1f2937;  /* Gris très foncé (mieux que noir) */
+    --text-secondary: #4b5563; /* Gris moyen */
+    --bg-primary: #ffffff;   /* Blanc */
+    --bg-secondary: #f9fafb; /* Blanc cassé / Gris très clair */
+    --border-color: #e5e7eb;  /* Gris clair pour les bordures */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    -webkit-font-smoothing: antialiased; /* Améliore le rendu du texte */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+/* Alternance des couleurs de fond pour délimiter les sections */
+#experiences,
+#competences,
+#cv {
+    background-color: var(--bg-secondary);
+}
+
+#engagements {
+    background-color: var(--bg-primary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --------------------
+ * 2. Typographie et Titres
+ * -------------------- */
+
+h1, h2, h3, h4 {
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+.section-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+p {
+    margin-bottom: 1.25rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+/* --------------------
+ * 3. Navigation (Navbar)
+ * -------------------- */
+
+#navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: var(--text-primary);
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    opacity: 1;
+}
+
+/* --------------------
+ * 4. Menu Mobile
+ * -------------------- */
+
+.mobile-menu-toggle {
+    display: none; /* Caché sur grand écran */
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background: var(--text-primary);
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active .hamburger:nth-child(1) { transform: rotate(-45deg) translate(-6px, 6px); }
+.mobile-menu-toggle.active .hamburger:nth-child(2) { opacity: 0; }
+.mobile-menu-toggle.active .hamburger:nth-child(3) { transform: rotate(45deg) translate(-6px, -6px); }
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--text-primary);
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    text-align: center;
+}
+
+.mobile-nav-links li {
+    margin: 2.5rem 0;
+}
+
+.mobile-nav-links a {
+    font-size: 1.75rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* --------------------
+ * 5. Section Accueil (Hero)
+ * -------------------- */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 70vh;
+    background-color: var(--bg-primary);
+    padding: 4rem 1.5rem;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.hero .hero-subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+}
+
+.hero .subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin: 0 auto 2rem auto;
+}
+
+/* Style de bouton réutilisable */
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #4338ca; /* Plus foncé */
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* --------------------
+ * 6. Section "About" (Expériences & Engagements)
+ * -------------------- */
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem; /* Espace entre les expériences */
+}
+
+.about-content:last-of-type {
+    margin-bottom: 0;
+}
+
+.about-image {
+    width: 100%;
+    height: 300px;
+    background-color: var(--border-color); /* Placeholder */
+    border-radius: 8px;
+}
+
+.about-text h3 {
+    color: var(--primary-color);
+}
+
+/* Marge pour le bouton d'attestation */
+.about-text .cta-button {
+    margin-top: 1rem;
+}
+
+/* --------------------
+ * 7. Section "Portfolio" (Compétences)
+ * -------------------- */
+
+/* Style pour les H3 "Hard Skills" et "Soft Skills" */
+#competences h3 {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+/* Le premier H3 n'a pas de marge en haut */
+#competences h3:first-of-type {
+    margin-top: 0;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.portfolio-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 180px;
+    background-color: var(--border-color); /* Placeholder */
+}
+
+.portfolio-content {
+    padding: 1.5rem;
+}
+
+/* --------------------
+ * 8. Section CV (Contact)
+ * -------------------- */
+
+.contact {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.contact-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact .section-title {
+    color: var(--bg-primary);
+}
+
+.contact p {
+    color: #d1d5db; /* Gris clair pour fond sombre */
+    font-size: 1.1rem;
+}
+
+.submit-btn {
+    /* Style identique au cta-button */
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #4338ca;
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Styles pour le CV intégré (vient de l'inline style) */
+.cv-embed { 
+    border: 1px solid #4b5563; /* Bordure plus foncée */
+    margin-top: 3rem; 
+    border-radius: 8px;
+    overflow: hidden; /* Pour les coins arrondis */
+}
+.cv-embed iframe { 
+    display: block; 
+    border: none; 
+    width: 100%; 
+    height: 800px;
+}
+
+/* --------------------
+ * 9. Footer
+ * -------------------- */
+
+.footer {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    padding: 3rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-left p {
+    margin: 0;
+}
+
+.footer-right {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-right a {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* --------------------
+ * 10. Animations (Fade/Slide)
+ * -------------------- */
+
+/* États initiaux (cachés) */
+.fade-in,
+.slide-in-left,
+.slide-in-right {
+    opacity: 0;
+    transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transition "élastique" */
+}
+
+.fade-in { transform: translateY(30px); }
+.slide-in-left { transform: translateX(-40px); }
+.slide-in-right { transform: translateX(40px); }
+
+/* États finaux (visibles) - déclenchés par JS */
+.fade-in.animate,
+.slide-in-left.animate,
+.slide-in-right.animate {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+}
+
+/* --------------------
+ * 11. Responsive (Mobile)
+ * -------------------- */
+
+@media (max-width: 992px) {
+    /* Tablette */
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile */
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.75rem; }
+    .hero .subtitle { font-size: 1rem; }
+    section { padding: 3rem 0; }
+
+    /* Fait passer le menu desktop au menu mobile */
+    .nav-links {
+        display: none;
+    }
+    .mobile-menu-toggle {
+        display: block;
+    }
+    .nav-container {
+        padding: 0 1rem;
+    }
+
+    /* Empile les sections "image + texte" */
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        /* L'image passe en haut */
+        grid-row: 1;
+        height: 250px;
+    }
+
+    /* Empile les compétences */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Centre le footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cv-embed iframe {
+        height: 600px;
+    }
+}
